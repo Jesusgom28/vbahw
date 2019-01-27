@@ -1,0 +1,34 @@
+Sub easyloop()
+    Dim ticker As String
+   
+    Dim vol As Double
+    vol = 0
+    
+    Dim Summary_Table_Row As Integer
+    Summary_Table_Row = 2
+    
+        For i = 2 To 70514
+            If Cells(i + 1, 1).Value <> Cells(i, 1).Value Then
+                ticker = Cells(i, 1).Value
+                
+                vol = vol + Cells(i, 3).Value
+                
+                Range("I" & Summary_Table_Row).Value = ticker
+                
+                Range("j" & Summary_Table_Row).Value = vol
+                
+                Summary_Table_Row = Summary_Table_Row + 1
+                
+                vol = 0
+                
+                Else
+                    
+                    vol = vol + Cells(i, 3).Value + Cells(i, 3).Value
+                    
+                    
+            
+            End If
+            
+        Next i
+    
+End Sub
